@@ -1,5 +1,6 @@
 from storage import load_expenses
 from expense_manager import calculate_total, display_expenses, add_expense, update_expense, delete_expense, search_by_category, search_by_description, search_by_date, category_summary, monthly_summary, view_expenses
+from analytics import calculate_statistics
     
 def main():  
     expenses=load_expenses()
@@ -16,7 +17,8 @@ def main():
         print("8.Category Summary")
         print("9.Search by date")
         print("10.Monthly Summary")
-        print("11.Exit")
+        print("11.Analytics")
+        print("12.Exit")
         opt=None
         try:
             opt=int(input("Enter your option number : "))
@@ -45,6 +47,13 @@ def main():
         elif opt==10:
             monthly_summary(expenses)
         elif opt==11:
+            total, average, highest, lowest = calculate_statistics(expenses)
+            print("===== EXPENSE ANALYTICS =====")
+            print("Total expense :", total)
+            print("Average expense :", average)
+            print("Highest expense :", highest)
+            print("Lowest expense :", lowest)
+        elif opt==12:
             print("Thanks for using our Program")
             break
         else:
