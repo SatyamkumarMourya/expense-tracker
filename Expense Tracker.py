@@ -2,6 +2,7 @@ from storage import load_expenses
 from expense_manager import calculate_total, display_expenses, add_expense, update_expense, delete_expense, search_by_category, search_by_description, search_by_date, category_summary, monthly_summary, view_expenses
 from analytics import calculate_statistics
 from pandas_analytics import pandas_monthly_summary, pandas_category_summary
+from visualization import show_category_chart, show_monthly_chart
 
 def main():  
     expenses=load_expenses()
@@ -20,7 +21,9 @@ def main():
         print("10.Monthly Summary")
         print("11.Analytics")
         print("12.Pandas Analytics")
-        print("13.Exit")
+        print("13.Category Chart")
+        print("14.Monthly Chart")
+        print("15.Exit")
         opt=None
         try:
             opt=int(input("Enter your option number : "))
@@ -67,6 +70,10 @@ def main():
             print("\nCategory Summary:")
             print(category.to_string(index=False))
         elif opt==13:
+            show_category_chart(expenses)
+        elif opt==14:
+            show_monthly_chart(expenses)
+        elif opt==15:
             print("Thanks for using our Program")
             break
         else:
