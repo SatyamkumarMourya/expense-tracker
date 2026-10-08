@@ -1,9 +1,8 @@
-import pandas as pd
 import matplotlib.pyplot as plt
-  
+from pandas_analytics import create_dataframe
     
 def show_category_chart(expenses):
-    df = pd.DataFrame(expenses)
+    df = create_dataframe(expenses)
     if df.empty:
         print("No expenses available for chart.")
         return
@@ -19,7 +18,7 @@ def show_category_chart(expenses):
     plt.show()
     
 def show_monthly_chart(expenses):
-    df = pd.DataFrame(expenses)
+    df = create_dataframe(expenses)
     if df.empty:
         print("No expenses available for chart.")
         return
